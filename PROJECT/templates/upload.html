@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-5 mx-auto">
+            <h3 class="text-center p-3">
+               <b>UPLOAD</b>
+            </h3>
+            <form method="post" class="card" style="background-color: rgb(213, 214, 129);">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="file_upload" class="form-label">Upload File(csv/xlsx)</label>
+                        <input type="file" class="form-control" id="file_upload" name="file_upload">
+                    </div>
+                    
+                    <div class="">
+                        <button type="submit" class="btn btn-primary"text-align="center">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+{% endblock %}
