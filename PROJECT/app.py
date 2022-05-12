@@ -11,10 +11,9 @@ app = Flask(__name__)
 app.secret_key = 'thisisaverysecretkey'
 
 def opendb():
-    engine = create_engine("sqlite:///model.db")
+    engine = create_engine("sqlite:///db.sqlite")
     Session = sessionmaker(bind=engine)
-    sess= Session()
-    return sess
+    return Session()
 
 @app.route('/', methods=['GET','POST'])
 def login ():
@@ -29,7 +28,10 @@ def login ():
             return redirect('/')
         # more like this
         else:
-           
+            session['isauth'] = True
+            session['id'] = True
+            session['name'] = True
+
             flash('Login Successfull', 'success')
             return redirect('/')
 
@@ -80,7 +82,6 @@ def logout():
     if "isauth" in session:
         session.pop('isauth')
     return redirect ("/")
-
 
 if __name__ == '__main__':
   app.run(debug=True)
